@@ -21,6 +21,8 @@ class ProgramOptions {
    */
   explicit ProgramOptions(const ProgramOptionsParser &parser);
 
+  // TODO: What should/shouldn't be optional
+
   /// Returns program mode
   ProgramMode mode() const { return mode_; }
   /// Returns source file name

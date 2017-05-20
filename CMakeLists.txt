@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.8)
-project(SocketPlay)
+project(SocketPlay VERSION 0.1 LANGUAGES CXX)
 
 # Global parameters
 add_definitions(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic)
 set(CMAKE_CXX_STANDARD 17)
+
+# From Jason Turner Best Practices
+add_definitions(-Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wmisleading-indentation)
 
 # Extra parameters (Unused for now)
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
@@ -16,7 +19,8 @@ set(Boost_USE_MULTITHREADED ON)
 
 # Include boost
 find_package(Boost REQUIRED COMPONENTS program_options)
-include_directories(${Boost_INCLUDE_DIRS})
+# System so that it doesn't warn for everything in Boost ( with out extended warnings )
+include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 
 include_directories(include)
 set(SOURCE_FILES source/main.cpp source/Program.cpp include/Program.h source/ProgramOptionsParser.cpp include/ProgramOptionsParser.h source/ProgramOptions.cpp include/ProgramOptions.h include/ProgramMode.h)

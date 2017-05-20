@@ -5,7 +5,9 @@
 #include "ProgramOptionsParser.h"
 #include "ProgramOptions.h"
 
-socketplay::ProgramOptions::ProgramOptions(const ProgramOptionsParser &parser) {
+using namespace socketplay;
+
+ProgramOptions::ProgramOptions(const ProgramOptionsParser &parser) {
   if (parser.has("help")) {
     mode_ = ProgramMode::HELP;
     return;
@@ -30,10 +32,10 @@ socketplay::ProgramOptions::ProgramOptions(const ProgramOptionsParser &parser) {
     throw std::runtime_error("Unknown mode!\nMode can only be 'stream' or 'play'.");
   }
 }
-void socketplay::ProgramOptions::parse_stream_options_(const socketplay::ProgramOptionsParser &parser) {
+void ProgramOptions::parse_stream_options_(const socketplay::ProgramOptionsParser &parser) {
   source_file_ = parser.get_checked<std::string>("source", "Source file is required for stream mode!");
 }
-void socketplay::ProgramOptions::parse_play_options_(const socketplay::ProgramOptionsParser &parser) {
+void ProgramOptions::parse_play_options_(const socketplay::ProgramOptionsParser &parser) {
   target_address_ = parser.get_checked<std::string>("address", "Target address is required for play mode!");
   target_port_ = parser.get_checked<std::string>("port", "Target port is required for play mode!");
 }

@@ -7,9 +7,10 @@
 #include <boost/program_options.hpp>
 #include "ProgramOptionsParser.h"
 
+using namespace socketplay;
 namespace po = boost::program_options;
 
-socketplay::ProgramOptionsParser::ProgramOptionsParser()
+ProgramOptionsParser::ProgramOptionsParser()
     : general_options_("General Options"),
       stream_options_("Streaming Options"),
       play_options_("Playing Options") {
@@ -37,7 +38,7 @@ socketplay::ProgramOptionsParser::ProgramOptionsParser()
   help_message_ = ss.str();
 }
 
-void socketplay::ProgramOptionsParser::parse_command_line(int argc, const char *const *argv) {
+void ProgramOptionsParser::parse_command_line(int argc, const char *const *argv) {
   po::store(po::parse_command_line(argc, argv, all_options_), variables_map_);
   po::notify(variables_map_);
 }
