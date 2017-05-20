@@ -32,10 +32,14 @@ void socketplay::Program::run(int argc, const char *const *argv) {
   }
   if (mode == ProgramMode::STREAM) {
     std::cout << "Running in stream mode.\n";
-    std::cout << "Streaming from " << options.source_file() << "\n";
+    std::cout << "Streaming from " << options.source_file() << '\n';
+    // TODO: Implement streaming mode
+    // Streaming mode is less of interest for now as playing mode is required
+    // to play audio from another computer/phone
   }
   if (mode == ProgramMode::PLAY) {
     std::cout << "Running in play mode.\n";
+    std::cout << "Target: " << options.target_address() << ":" << options.target_port() << '\n';
   }
 }
 

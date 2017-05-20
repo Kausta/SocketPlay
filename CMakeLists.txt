@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.8)
 project(SocketPlay)
 
 # Global parameters
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic")
+add_definitions(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic)
 set(CMAKE_CXX_STANDARD 17)
 
-# Extra parameters
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+# Extra parameters (Unused for now)
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+#set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+#set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
 
 # Boost static and multithreaded
 set(Boost_USE_STATIC_LIBS ON)

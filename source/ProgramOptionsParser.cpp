@@ -22,7 +22,9 @@ socketplay::ProgramOptionsParser::ProgramOptionsParser()
   // Options specific for streaming and playing modes
   stream_options_.add_options()
       ("source,s", po::value<std::string>(), "Source file to stream");
-  play_options_.add_options();
+  play_options_.add_options()
+      ("address,a", po::value<std::string>(), "Target Address")
+      ("port,p", po::value<std::string>(), "Target Port");
 
   // Helper for parsing and generating help message
   all_options_.add(general_options_)
