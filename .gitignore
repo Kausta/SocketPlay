@@ -59,6 +59,9 @@
 
 # CMake
 cmake-build-debug/
+# Added release and debug info folders to ignore
+cmake-build-release/
+cmake-build-relwithdebinfo/
 
 # Mongo Explorer plugin:
 .idea/**/mongoSettings.xml
