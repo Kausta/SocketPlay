@@ -1,0 +1,42 @@
+// Program.cpp
+// Created by Caner Korkmaz on 20/5/2017.
+// Copyright 2017 Caner Korkmaz
+//
+
+#include <iostream>
+#include "Program.h"
+#include "ProgramOptionsParser.h"
+#include "ProgramOptions.h"
+
+socketplay::Program::Program() = default;
+
+void socketplay::Program::run(int argc, const char *const *argv) {
+  // Parse command line options and return if the program should end (help, version, etc.)
+  socketplay::ProgramOptionsParser options_parser{};
+  options_parser.parse_command_line(argc, argv);
+  // TODO: Get options_parser from config file
+
+  socketplay::ProgramOptions options{options_parser};
+  auto mode = options.mode();
+  // Show help info and return
+  if (mode == ProgramMode::HELP) {
+    std::cout << "SocketPlay\n";
+    std::cout << options_parser.help_message();
+    return;
+  }
+  // Show version info and return
+  if (mode == ProgramMode::VERSION) {
+    std::cout << "SocketPlay\n";
+    std::cout << "Version 0.1a\n";
+    return;
+  }
+  if (mode == ProgramMode::STREAM) {
+    std::cout << "Running in stream mode.\n";
+    std::cout << "Streaming from " << options.source_file() << "\n";
+  }
+  if (mode == ProgramMode::PLAY) {
+    std::cout << "Running in play mode.\n";
+  }
+}
+
+
