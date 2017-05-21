@@ -25,7 +25,7 @@ Contributions are highly welcomed and will always be!
 
 See [Contribution guidelines for this project](CONTRIBUTING.md)
 
-[Doxygen Generated Documentations](docs/html/index.html)
+Doxygen Generated Documentations are at docs/html/index.html
  
  ## License 
  Licensed under Apache License 2.0, see [LICENSE](LICENSE) for details
