@@ -28,8 +28,8 @@ addons:
       name: "Kausta/SocketPlay"
       description: "Build submitted via Travis CI"
     notification_email: info@canerkorkmaz.com
-    build_command_prepend: "mkdir coverity-build && cd coverity-build && cmake -DCMAKE_BUILD_TYPE=Debug .."
-    build_command:   "cmake --build ./coverity-build --target SocketPlay -- -j 2"
+    build_command_prepend: "mkdir debug-build && cd debug-build && cmake -DCMAKE_BUILD_TYPE=Debug .. && cd .."
+    build_command:   "cmake --build ./debug-build --target SocketPlay -- -j 2"
     branch_pattern: coverity_scan
 
 install:
