@@ -23,7 +23,7 @@ streaming/stream playing program.
  
 Contributions are highly welcomed and will always be! 
 
-See [Contribution guidelines for this project](docs/CONTRIBUTING.md)
+See [Contribution guidelines for this project](CONTRIBUTING.md)
  
  ## License 
  Licensed under Apache License 2.0, see [LICENSE](LICENSE) for details
