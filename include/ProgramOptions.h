@@ -11,7 +11,7 @@
 namespace socketplay {
 class ProgramOptionsParser;
 /**
- * Program Options helper to check and get values from Program Options Parser
+ * @brief Helper to check and get argument values from ProgramOptionsParser
  */
 class ProgramOptions {
  public:

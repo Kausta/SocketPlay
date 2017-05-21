@@ -10,7 +10,9 @@
 #include <string>
 
 namespace socketplay {
-/// Entry class for Socket Play app
+/**
+ * @brief Entry class for Socket Play app
+ */
 class Program {
  public:
   /// Default constructor for program
