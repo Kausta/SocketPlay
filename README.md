@@ -2,7 +2,7 @@
 
 Cross Platform Audio Streamer/Player
 
-##Introduction
+## Introduction
 
 SocketPlay is a project in development started to help me listen to multiple devices using 
 single headphones, yet it is planned to be a fully featured audio (and video) 
