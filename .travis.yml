@@ -4,6 +4,14 @@ compiler: gcc
 # Enable Ubuntu 14.04
 dist: trusty
 
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "GA+Kj4pNzg8t9jctBDLHevPRcp1D/XalVBt98DqS6Tn8lceRqOWLrTn1bTiSvSyLvyfQerMPYoiZk6be+Eojxn84YLzH3cn9pTmd3cuwECiK7yFG4jLK+59UhcDcAEqmqAPx4OH+OCb9h6qnNCSgz9b+i4qrnIcHe8A63njr29TSe3kQ3MTdHxQpBecZt1EVNZRUrNpDGhroVn9oT0T4mgv+zkdBDKQr/GIVYXMPYxIliK5ELYeu6Qxc6YdWlZwDTFwuVnNTYBJ2rLEEBEaXe/X6hXlM4KUjSDii+mxgFrRh4fhBOVuvmibmi9g8SyGeZ4MbpSIJ/5orNGj6Quz5CEiDn+uWnvFBYm4jQx5Yk6O2WV0gNu2nqZvjbRGNV9OpFz3/t1pBHYBKv9pkAdlwdPxUNJgqxyskZfwwB/g5V+K+oYFYZfG0ISEDxGjOJjegs42WO79LDbl1sb6JwzAoQJ40dEDkbxJ12/zQ+qA6sG2Awl2Favf6NAVrpNrpydtTAlusP/R9xybirl5zmSZin7lTSa3QkDXCeXgyhBqE7IukdIJj7chQpUluB8T4BYb625+979kJvUzM7QF+7KVUGkcCkbS+MVLV+RG0p1mdSwd/97nvgCdzey3/Zgw0ldoBMsdORA5mobbuLcJcYIVXP2uEzXq+Nl30r5elylX4Xik="
+
+before_install:
+
 before_install:
   # C++17
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
@@ -11,6 +19,18 @@ before_install:
   - sudo apt-get install -y software-properties-common
   - sudo add-apt-repository -y ppa:ppsspp/cmake
   - sudo apt-get update -qq
+  # Coverity Scan
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "Kausta/SocketPlay"
+      description: "Build submitted via Travis CI"
+    notification_email: info@canerkorkmaz.com
+    build_command_prepend: "mkdir coverity-build && cd coverity-build && cmake -DCMAKE_BUILD_TYPE=Debug .."
+    build_command:   "cmake --build ./coverity-build --target SocketPlay -- -j 2"
+    branch_pattern: coverity_scan
 
 install:
   # C++17
@@ -23,7 +43,10 @@ install:
 
 script:
   - mkdir debug-build && cd debug-build
-  - cmake -DCMAKE_BUILD_TYPE=Debug .. && make
+  - cmake -DCMAKE_BUILD_TYPE=Debug ..
   - cd ..
+  - cmake --build ./debug-build --target SocketPlay -- -j 2
   - mkdir release-build && cd release-build
-  - cmake -DCMAKE_BUILD_TYPE=Release .. && make
+  - cmake -DCMAKE_BUILD_TYPE=Release ..
+  - cd .. 
+  - cmake --build ./release-build --target SocketPlay -- -j 2
