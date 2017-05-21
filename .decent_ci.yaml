@@ -4,6 +4,6 @@ compilers:
     skip_packaging: true
     cmake_extra_flags: -DCMAKE_BUILD_TYPE=Debug
   - name: "gcc"
-      version: "7.1"
-      skip_packaging: true
-      cmake_extra_flags: -DCMAKE_BUILD_TYPE=Release
+    version: "7.1"
+    skip_packaging: true
+    cmake_extra_flags: -DCMAKE_BUILD_TYPE=Release
