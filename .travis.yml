@@ -28,7 +28,7 @@ addons:
       name: "Kausta/SocketPlay"
       description: "Build submitted via Travis CI"
     notification_email: info@canerkorkmaz.com
-    build_command_prepend: "mkdir debug-build && cd debug-build && cmake -DCMAKE_BUILD_TYPE=Debug .. && cd .."
+    build_command_prepend: "mkdir -p debug-build && cd debug-build && cmake -DCMAKE_BUILD_TYPE=Debug .. && cd .."
     build_command:   "cmake --build ./debug-build --target SocketPlay -- -j 2"
     branch_pattern: coverity_scan
 
@@ -42,11 +42,11 @@ install:
   - sudo apt-get install -qq libboost-dev libboost-program-options-dev
 
 script:
-  - mkdir debug-build && cd debug-build
+  - mkdir -p debug-build && cd debug-build
   - cmake -DCMAKE_BUILD_TYPE=Debug ..
   - cd ..
   - cmake --build ./debug-build --target SocketPlay -- -j 2
-  - mkdir release-build && cd release-build
+  - mkdir -p release-build && cd release-build
   - cmake -DCMAKE_BUILD_TYPE=Release ..
   - cd .. 
   - cmake --build ./release-build --target SocketPlay -- -j 2
