@@ -23,16 +23,16 @@ Built out of source with debug, release  and release with debug info configurati
 
 ## Project Plan
 
-[ ] Command Line Arguments
-  [x] Basic Mode Configuration, Help, Version Info
-  [ ] Extended Streaming and Playing Arguments
-[ ] Streaming Mode
-  [ ] File Streaming (TCP ?)
-  [ ] Audio Redirection From Stream (UDP)
-    [ ] Windows: Planned to use WASAPI
-    [ ] Linux: Planned to use alsa
-[ ] Playing Mode
-  [ ] OpenAL is planned, but subject due to change
+- [ ] Command Line Arguments
+  - [x] Basic Mode Configuration, Help, Version Info
+  - [ ] Extended Streaming and Playing Arguments
+- [ ] Streaming Mode
+  - [ ] File Streaming (TCP ?)
+  - [ ] Audio Redirection From Stream (UDP)
+    - [ ] Windows: Planned to use WASAPI
+    - [ ] Linux: Planned to use alsa
+- [ ] Playing Mode
+  - [ ] OpenAL is planned, but subject due to change
   
 ## Coding Styles and Conventions
 
