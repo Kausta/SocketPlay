@@ -1,4 +1,4 @@
-# Socket Play [![Build Status](https://travis-ci.org/Kausta/SocketPlay.svg?branch=master)](https://travis-ci.org/Kausta/SocketPlay) [![Build status](https://ci.appveyor.com/api/projects/status/sn10mfnhp7twhn9o?svg=true)](https://ci.appveyor.com/project/Kausta/socketplay)
+# Socket Play [![Build Status](https://travis-ci.org/Kausta/SocketPlay.svg?branch=master)](https://travis-ci.org/Kausta/SocketPlay)
 
 Cross Platform Audio Streamer/Player
 
