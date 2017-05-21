@@ -21,7 +21,7 @@ class ProgramOptions {
    */
   explicit ProgramOptions(const ProgramOptionsParser &parser);
 
-  // TODO: What should/shouldn't be optional
+  // TODO: What should/shouldn't be std::optional
 
   /// Returns program mode
   ProgramMode mode() const { return mode_; }

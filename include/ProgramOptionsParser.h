@@ -11,7 +11,6 @@
 #include <memory>
 
 #include <boost/program_options.hpp>
-namespace po = boost::program_options;
 
 namespace socketplay {
 /**
@@ -30,7 +29,7 @@ class ProgramOptionsParser {
   // TODO: Add parser for config file
 
   /// Variables map parsed from program options
-  const po::variables_map &variables_map() const { return variables_map_; }
+  const boost::program_options::variables_map &variables_map() const { return variables_map_; }
 
   /// Checks whether an options exists
   bool has(const std::string &variable) const { return variables_map_.count(variable) != 0; }
@@ -63,12 +62,12 @@ class ProgramOptionsParser {
   /// Returns the generated help message
   const std::string &help_message() const { return help_message_; }
  private:
-  po::options_description general_options_;
-  po::options_description stream_options_;
-  po::options_description play_options_;
-  po::options_description all_options_;
+  boost::program_options::options_description general_options_;
+  boost::program_options::options_description stream_options_;
+  boost::program_options::options_description play_options_;
+  boost::program_options::options_description all_options_;
 
-  po::variables_map variables_map_;
+  boost::program_options::variables_map variables_map_;
 
   std::string help_message_;
 };
