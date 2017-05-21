@@ -27,13 +27,14 @@ Built out of source with debug, release  and release with debug info configurati
   - [x] Basic Mode Configuration, Help, Version Info
   - [ ] Extended Streaming and Playing Arguments
 - [ ] Streaming Mode
-  - [ ] File Streaming (TCP ?)
-  - [ ] Audio Redirection From Stream (UDP)
+  - [ ] File Streaming (TCP ? planned Boost.Asio)
+  - [ ] Audio Redirection From Stream (UDP planned Boost.Asio)
     - [ ] Windows: Planned to use WASAPI
     - [ ] Linux: Planned to use alsa
+    - [ ] Android: ? (Higher priority than others)
+    - [ ] IOS: ? 
 - [ ] Playing Mode
   - [ ] OpenAL is planned, but subject due to change
-  
 ## Coding Styles and Conventions
 
 For style, it is possible to use formatters. 
