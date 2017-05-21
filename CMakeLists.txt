@@ -1,9 +1,13 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.7)
 project(SocketPlay VERSION 0.1 LANGUAGES CXX)
 
 # Global parameters
 add_definitions(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic)
-set(CMAKE_CXX_STANDARD 17)
+if (${CMAKE_VERSION} VERSION_GREATER 3.8)
+    set(CMAKE_CXX_STANDARD 17)
+else ()
+    add_definitions(-std=c++1z)
+endif ()
 
 # From Jason Turner Best Practices
 add_definitions(-Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wmisleading-indentation)
