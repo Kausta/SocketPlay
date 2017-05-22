@@ -37,9 +37,6 @@ void Program::run(int argc, const char *const *argv) {
     StreamOptions options = std::get<StreamOptions>(options_v);
     std::cout << "Running in stream mode.\n";
     std::cout << "Streaming from " << options.port << '\n';
-    // TODO: Implement streaming mode
-    // Streaming mode is less of interest for now as playing mode is required
-    // to play audio from another device
   } else if (mode == ProgramMode::STREAM_FILE) {
     StreamFileOptions options = std::get<StreamFileOptions>(options_v);
     std::cout << "Running in file stream mode.\n";

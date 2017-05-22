@@ -6,11 +6,9 @@ dist: trusty
 
 env:
   global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "GA+Kj4pNzg8t9jctBDLHevPRcp1D/XalVBt98DqS6Tn8lceRqOWLrTn1bTiSvSyLvyfQerMPYoiZk6be+Eojxn84YLzH3cn9pTmd3cuwECiK7yFG4jLK+59UhcDcAEqmqAPx4OH+OCb9h6qnNCSgz9b+i4qrnIcHe8A63njr29TSe3kQ3MTdHxQpBecZt1EVNZRUrNpDGhroVn9oT0T4mgv+zkdBDKQr/GIVYXMPYxIliK5ELYeu6Qxc6YdWlZwDTFwuVnNTYBJ2rLEEBEaXe/X6hXlM4KUjSDii+mxgFrRh4fhBOVuvmibmi9g8SyGeZ4MbpSIJ/5orNGj6Quz5CEiDn+uWnvFBYm4jQx5Yk6O2WV0gNu2nqZvjbRGNV9OpFz3/t1pBHYBKv9pkAdlwdPxUNJgqxyskZfwwB/g5V+K+oYFYZfG0ISEDxGjOJjegs42WO79LDbl1sb6JwzAoQJ40dEDkbxJ12/zQ+qA6sG2Awl2Favf6NAVrpNrpydtTAlusP/R9xybirl5zmSZin7lTSa3QkDXCeXgyhBqE7IukdIJj7chQpUluB8T4BYb625+979kJvUzM7QF+7KVUGkcCkbS+MVLV+RG0p1mdSwd/97nvgCdzey3/Zgw0ldoBMsdORA5mobbuLcJcYIVXP2uEzXq+Nl30r5elylX4Xik="
-
-before_install:
+    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+    #    via the "travis encrypt" command using the project repo's public key
+    - secure: "Q5MgSnUMtrz+rkoFtJycXS/npgJM/b5+I0w1DXrSvd1gzeSewwbaRaNQ1Fq+3dySNLoWOnrepVTOm3bKkmrxifhz+VUWLZVCCTAgbMf6PSsrZAM12q923CnYKtu70/r8WCDF+lGrWaNXbcl8nbPTOdaBMN2b2hz2eNIOTXEGYTTFMN9j29PaeIj8OvspQ498SZU463lqyDn+wRPyfBPZ3O+ufvlRfxPnnY1waBbSKgYzVFlmtrWMBnLxFIiqlfQ0lD/sFYuAs2iD1BqSfSAhDQ+lrtzLwEIyT9b3uHXRtz2Mu0meZpvgD9UeKS24coRt9WptFU60wStQX9bAHw535Z9gVvTh+B2Ew+/TMn2Z0mAdD2x0SwMXFeDWPIcQSLXsXOf237thT2wyt6C7LOkefWXZzb5BvkBhr5rTP8Cne5MyFpB2tXZASKtPG4xqVcPNkrdWbnPWdsAITFw4o1EkbPdgU41+X0mlnEbVjt04Tu/+Nt66uPL8q/zYSYiwidiIl2qg1K1O/vNgaY7T2mpP8bG12RVzGxy8arV3No0ftJuqWRSbHCrhrVdRtzV/or/34/GZKXBuTy5sV7YlpFJCScy3NkKOMnAHdVLfSDnyf5SqarTtW6ff8R51O8JjfF1zV05Bl1hErVFoPMmvYxtarH5DNdD8BWNKg/E0orW3mOk="
 
 before_install:
   # C++17
