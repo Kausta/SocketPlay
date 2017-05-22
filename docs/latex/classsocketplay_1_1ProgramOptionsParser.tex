@@ -1,0 +1,124 @@
+\hypertarget{classsocketplay_1_1ProgramOptionsParser}{}\section{socketplay\+:\+:Program\+Options\+Parser Class Reference}
+\label{classsocketplay_1_1ProgramOptionsParser}\index{socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}}
+
+
+Helper for parsing command line options, uses boost\+::program\+\_\+options.  
+
+
+
+
+{\ttfamily \#include $<$Program\+Options\+Parser.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsocketplay_1_1ProgramOptionsParser_a2e0d3b6136470b57be905a20ba8c1db7}{Program\+Options\+Parser} ()\hypertarget{classsocketplay_1_1ProgramOptionsParser_a2e0d3b6136470b57be905a20ba8c1db7}{}\label{classsocketplay_1_1ProgramOptionsParser_a2e0d3b6136470b57be905a20ba8c1db7}
+
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{classsocketplay_1_1Program}{Program} Options Parser. \end{DoxyCompactList}\item 
+void \hyperlink{classsocketplay_1_1ProgramOptionsParser_ac3a2c72b6b7def4556e1f71f4a7f3c3a}{parse\+\_\+command\+\_\+line} (int argc, const char $\ast$const $\ast$argv)
+\begin{DoxyCompactList}\small\item\em Parse options from given command line arguments. \end{DoxyCompactList}\item 
+const boost\+::program\+\_\+options\+::variables\+\_\+map \& \hyperlink{classsocketplay_1_1ProgramOptionsParser_a9b01f381d32504969c720c03f85cba3e}{variables\+\_\+map} () const \hypertarget{classsocketplay_1_1ProgramOptionsParser_a9b01f381d32504969c720c03f85cba3e}{}\label{classsocketplay_1_1ProgramOptionsParser_a9b01f381d32504969c720c03f85cba3e}
+
+\begin{DoxyCompactList}\small\item\em Variables map parsed from program options. \end{DoxyCompactList}\item 
+bool \hyperlink{classsocketplay_1_1ProgramOptionsParser_a220bfd81a57fb5aa3ff969b8539ceb61}{has} (const std\+::string \&variable) const \hypertarget{classsocketplay_1_1ProgramOptionsParser_a220bfd81a57fb5aa3ff969b8539ceb61}{}\label{classsocketplay_1_1ProgramOptionsParser_a220bfd81a57fb5aa3ff969b8539ceb61}
+
+\begin{DoxyCompactList}\small\item\em Checks whether an options exists. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\const T \& \hyperlink{classsocketplay_1_1ProgramOptionsParser_a8274716f6f8e0c90129a58c1b41f3019}{get} (const std\+::string \&variable) const 
+\begin{DoxyCompactList}\small\item\em Helper to get variable from variables map and convert to required type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename Error  = std\+::runtime\+\_\+error$>$ }\\const T \& \hyperlink{classsocketplay_1_1ProgramOptionsParser_a0e21c08094d0a39d2d279be420f488da}{get\+\_\+checked} (const std\+::string \&variable, const std\+::string \&error=\char`\"{}\char`\"{}) const 
+\begin{DoxyCompactList}\small\item\em Helper to get variable from variables map if it exists and convert to required type, throws otherwise. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classsocketplay_1_1ProgramOptionsParser_a69004585fa3208758ec67930f5e384ac}{help\+\_\+message} () const \hypertarget{classsocketplay_1_1ProgramOptionsParser_a69004585fa3208758ec67930f5e384ac}{}\label{classsocketplay_1_1ProgramOptionsParser_a69004585fa3208758ec67930f5e384ac}
+
+\begin{DoxyCompactList}\small\item\em Returns the generated help message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Helper for parsing command line options, uses boost\+::program\+\_\+options. 
+
+\subsection{Member Function Documentation}
+\index{socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}!get@{get}}
+\index{get@{get}!socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}}
+\subsubsection[{\texorpdfstring{get(const std\+::string \&variable) const }{get(const std::string &variable) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T\& socketplay\+::\+Program\+Options\+Parser\+::get (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{variable}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classsocketplay_1_1ProgramOptionsParser_a8274716f6f8e0c90129a58c1b41f3019}{}\label{classsocketplay_1_1ProgramOptionsParser_a8274716f6f8e0c90129a58c1b41f3019}
+
+
+Helper to get variable from variables map and convert to required type. 
+
+\begin{DoxyPrecond}{Precondition}
+The variable should exist and be of type T 
+\end{DoxyPrecond}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the requested variable \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & Variable to get from the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Const ref of type T to given variable from options map 
+\end{DoxyReturn}
+\index{socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}!get\+\_\+checked@{get\+\_\+checked}}
+\index{get\+\_\+checked@{get\+\_\+checked}!socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}}
+\subsubsection[{\texorpdfstring{get\+\_\+checked(const std\+::string \&variable, const std\+::string \&error="""") const }{get_checked(const std::string &variable, const std::string &error="") const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename Error  = std\+::runtime\+\_\+error$>$ const T\& socketplay\+::\+Program\+Options\+Parser\+::get\+\_\+checked (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{variable, }
+\item[{const std\+::string \&}]{error = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classsocketplay_1_1ProgramOptionsParser_a0e21c08094d0a39d2d279be420f488da}{}\label{classsocketplay_1_1ProgramOptionsParser_a0e21c08094d0a39d2d279be420f488da}
+
+
+Helper to get variable from variables map if it exists and convert to required type, throws otherwise. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the requested variable \\
+\hline
+{\em Error} & Type of error to throw, defaults to std\+::runtime\+\_\+error \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em variable} & Variable to get from the map \\
+\hline
+{\em error} & Error message to throw if the variable doesnt exist, defaults to \char`\"{}\char`\"{} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error} & if the variable doesn\textquotesingle{}t exist \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Returns}
+Const ref of type T to given variable from options map 
+\end{DoxyReturn}
+\index{socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}!parse\+\_\+command\+\_\+line@{parse\+\_\+command\+\_\+line}}
+\index{parse\+\_\+command\+\_\+line@{parse\+\_\+command\+\_\+line}!socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}}
+\subsubsection[{\texorpdfstring{parse\+\_\+command\+\_\+line(int argc, const char $\ast$const $\ast$argv)}{parse_command_line(int argc, const char *const *argv)}}]{\setlength{\rightskip}{0pt plus 5cm}void Program\+Options\+Parser\+::parse\+\_\+command\+\_\+line (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{const char $\ast$const $\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{classsocketplay_1_1ProgramOptionsParser_ac3a2c72b6b7def4556e1f71f4a7f3c3a}{}\label{classsocketplay_1_1ProgramOptionsParser_ac3a2c72b6b7def4556e1f71f4a7f3c3a}
+
+
+Parse options from given command line arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Argument Count \\
+\hline
+{\em argv} & Arguments \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Program\+Options\+Parser.\+h\item 
+source/Program\+Options\+Parser.\+cpp\end{DoxyCompactItemize}

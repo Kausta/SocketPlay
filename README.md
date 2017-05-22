@@ -1,4 +1,4 @@
-# Socket Play [![Build Status](https://travis-ci.org/Kausta/SocketPlay.svg?branch=master)](https://travis-ci.org/Kausta/SocketPlay)
+# Socket Play [![Build Status](https://travis-ci.org/Kausta/SocketPlay.svg?branch=master)](https://travis-ci.org/Kausta/SocketPlay)[![Gitter chat](https://badges.gitter.im/Kausta/SocketPlay.png)](https://gitter.im/SocketPlay/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 Cross Platform Audio Streamer/Player
 
@@ -24,6 +24,8 @@ streaming/stream playing program.
 Contributions are highly welcomed and will always be! 
 
 See [Contribution guidelines for this project](CONTRIBUTING.md)
+
+Doxygen Generated Documentations are at docs/html/index.html
  
  ## License 
  Licensed under Apache License 2.0, see [LICENSE](LICENSE) for details

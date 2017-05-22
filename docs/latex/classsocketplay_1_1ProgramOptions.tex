@@ -1,0 +1,94 @@
+\hypertarget{classsocketplay_1_1ProgramOptions}{}\section{socketplay\+:\+:Program\+Options Class Reference}
+\label{classsocketplay_1_1ProgramOptions}\index{socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}}
+
+
+Helper to check and get argument values from \hyperlink{classsocketplay_1_1ProgramOptionsParser}{Program\+Options\+Parser}.  
+
+
+
+
+{\ttfamily \#include $<$Program\+Options.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsocketplay_1_1ProgramOptions_a34efe437f5d969ba668e2be5559db534}{Program\+Options} (const \hyperlink{classsocketplay_1_1ProgramOptionsParser}{Program\+Options\+Parser} \&parser)
+\item 
+Program\+Mode \hyperlink{classsocketplay_1_1ProgramOptions_a0d13c01510cea126672382bbd0058b81}{mode} () const \hypertarget{classsocketplay_1_1ProgramOptions_a0d13c01510cea126672382bbd0058b81}{}\label{classsocketplay_1_1ProgramOptions_a0d13c01510cea126672382bbd0058b81}
+
+\begin{DoxyCompactList}\small\item\em Returns program mode. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classsocketplay_1_1ProgramOptions_ad6e2a11e5dae0d8621fc38d1cddc6f7c}{source\+\_\+file} () const 
+\begin{DoxyCompactList}\small\item\em Returns source file name. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classsocketplay_1_1ProgramOptions_a92c4779f7f597eb1fb77143f72491197}{target\+\_\+address} () const 
+\begin{DoxyCompactList}\small\item\em Returns target address. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classsocketplay_1_1ProgramOptions_a4c47d43affa63f456694a0fcfa1d6dc0}{target\+\_\+port} () const 
+\begin{DoxyCompactList}\small\item\em Returns target port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Helper to check and get argument values from \hyperlink{classsocketplay_1_1ProgramOptionsParser}{Program\+Options\+Parser}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}!Program\+Options@{Program\+Options}}
+\index{Program\+Options@{Program\+Options}!socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}}
+\subsubsection[{\texorpdfstring{Program\+Options(const Program\+Options\+Parser \&parser)}{ProgramOptions(const ProgramOptionsParser &parser)}}]{\setlength{\rightskip}{0pt plus 5cm}Program\+Options\+::\+Program\+Options (
+\begin{DoxyParamCaption}
+\item[{const {\bf Program\+Options\+Parser} \&}]{parser}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classsocketplay_1_1ProgramOptions_a34efe437f5d969ba668e2be5559db534}{}\label{classsocketplay_1_1ProgramOptions_a34efe437f5d969ba668e2be5559db534}
+Create \hyperlink{classsocketplay_1_1Program}{Program} Options from given parser 
+\begin{DoxyParams}{Parameters}
+{\em parser} & Parser to read parsed options from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}!source\+\_\+file@{source\+\_\+file}}
+\index{source\+\_\+file@{source\+\_\+file}!socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}}
+\subsubsection[{\texorpdfstring{source\+\_\+file() const }{source_file() const }}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string\& socketplay\+::\+Program\+Options\+::source\+\_\+file (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classsocketplay_1_1ProgramOptions_ad6e2a11e5dae0d8621fc38d1cddc6f7c}{}\label{classsocketplay_1_1ProgramOptions_ad6e2a11e5dae0d8621fc38d1cddc6f7c}
+
+
+Returns source file name. 
+
+\begin{DoxyPrecond}{Precondition}
+Mode is Stream 
+\end{DoxyPrecond}
+\index{socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}!target\+\_\+address@{target\+\_\+address}}
+\index{target\+\_\+address@{target\+\_\+address}!socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}}
+\subsubsection[{\texorpdfstring{target\+\_\+address() const }{target_address() const }}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string\& socketplay\+::\+Program\+Options\+::target\+\_\+address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classsocketplay_1_1ProgramOptions_a92c4779f7f597eb1fb77143f72491197}{}\label{classsocketplay_1_1ProgramOptions_a92c4779f7f597eb1fb77143f72491197}
+
+
+Returns target address. 
+
+\begin{DoxyPrecond}{Precondition}
+Mode is Play 
+\end{DoxyPrecond}
+\index{socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}!target\+\_\+port@{target\+\_\+port}}
+\index{target\+\_\+port@{target\+\_\+port}!socketplay\+::\+Program\+Options@{socketplay\+::\+Program\+Options}}
+\subsubsection[{\texorpdfstring{target\+\_\+port() const }{target_port() const }}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string\& socketplay\+::\+Program\+Options\+::target\+\_\+port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classsocketplay_1_1ProgramOptions_a4c47d43affa63f456694a0fcfa1d6dc0}{}\label{classsocketplay_1_1ProgramOptions_a4c47d43affa63f456694a0fcfa1d6dc0}
+
+
+Returns target port. 
+
+\begin{DoxyPrecond}{Precondition}
+Mode is Play 
+\end{DoxyPrecond}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Program\+Options.\+h\item 
+source/Program\+Options.\+cpp\end{DoxyCompactItemize}

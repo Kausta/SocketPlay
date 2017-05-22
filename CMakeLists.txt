@@ -1,6 +1,17 @@
 cmake_minimum_required(VERSION 3.7)
 project(SocketPlay VERSION 0.1 LANGUAGES CXX)
 
+# Code coverage
+if (CMAKE_COMPILER_IS_GNUCC)
+    option(ENABLE_COVERAGE "Enable Coverage Reporting in GCC" FALSE)
+
+    if (ENABLE_COVERAGE)
+        add_definitions(--coverage -O0)
+        set(LINKER_FLAGS "${LINKER_FLAGS} --coverage")
+    endif ()
+endif ()
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${LINKER_FLAGS}")
+
 # Global parameters
 add_definitions(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic)
 if (${CMAKE_VERSION} VERSION_GREATER 3.8)
@@ -27,6 +38,6 @@ find_package(Boost REQUIRED COMPONENTS program_options)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 
 include_directories(include)
-set(SOURCE_FILES source/main.cpp source/Program.cpp include/Program.h source/ProgramOptionsParser.cpp include/ProgramOptionsParser.h source/ProgramOptions.cpp include/ProgramOptions.h include/ProgramMode.h)
+set(SOURCE_FILES source/main.cpp source/Program.cpp include/Program.h source/ProgramOptionsParser.cpp include/ProgramOptionsParser.h include/ProgramMode.h)
 add_executable(SocketPlay ${SOURCE_FILES})
 target_link_libraries(SocketPlay ${Boost_LIBRARIES})
