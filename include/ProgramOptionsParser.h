@@ -9,8 +9,10 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <tuple>
 
 #include <boost/program_options.hpp>
+#include "ProgramMode.h"
 
 namespace socketplay {
 /**
@@ -25,7 +27,7 @@ class ProgramOptionsParser {
    * @param argc Argument Count
    * @param argv Arguments
    */
-  void parse_command_line(int argc, const char *const *argv);
+  std::tuple<ProgramMode, OptionsContainer> parse_command_line(int argc, const char *const *argv);
   // TODO: Add parser for config file
 
   /// Variables map parsed from program options
@@ -63,7 +65,9 @@ class ProgramOptionsParser {
   const std::string &help_message() const { return help_message_; }
  private:
   boost::program_options::options_description general_options_;
+  boost::program_options::positional_options_description positional_options_;
   boost::program_options::options_description stream_options_;
+  boost::program_options::options_description stream_file_options_;
   boost::program_options::options_description play_options_;
   boost::program_options::options_description all_options_;
 

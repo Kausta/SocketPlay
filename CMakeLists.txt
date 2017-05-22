@@ -27,6 +27,6 @@ find_package(Boost REQUIRED COMPONENTS program_options)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 
 include_directories(include)
-set(SOURCE_FILES source/main.cpp source/Program.cpp include/Program.h source/ProgramOptionsParser.cpp include/ProgramOptionsParser.h source/ProgramOptions.cpp include/ProgramOptions.h include/ProgramMode.h)
+set(SOURCE_FILES source/main.cpp source/Program.cpp include/Program.h source/ProgramOptionsParser.cpp include/ProgramOptionsParser.h include/ProgramMode.h)
 add_executable(SocketPlay ${SOURCE_FILES})
 target_link_libraries(SocketPlay ${Boost_LIBRARIES})
