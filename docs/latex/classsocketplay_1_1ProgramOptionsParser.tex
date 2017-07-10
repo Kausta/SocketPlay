@@ -15,7 +15,7 @@ Helper for parsing command line options, uses boost\+::program\+\_\+options.
 \hyperlink{classsocketplay_1_1ProgramOptionsParser_a2e0d3b6136470b57be905a20ba8c1db7}{Program\+Options\+Parser} ()\hypertarget{classsocketplay_1_1ProgramOptionsParser_a2e0d3b6136470b57be905a20ba8c1db7}{}\label{classsocketplay_1_1ProgramOptionsParser_a2e0d3b6136470b57be905a20ba8c1db7}
 
 \begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{classsocketplay_1_1Program}{Program} Options Parser. \end{DoxyCompactList}\item 
-void \hyperlink{classsocketplay_1_1ProgramOptionsParser_ac3a2c72b6b7def4556e1f71f4a7f3c3a}{parse\+\_\+command\+\_\+line} (int argc, const char $\ast$const $\ast$argv)
+std\+::tuple$<$ Program\+Mode, Options\+Container $>$ \hyperlink{classsocketplay_1_1ProgramOptionsParser_ad9d10b64a800bbdd5fa2f27cb35d14ad}{parse\+\_\+command\+\_\+line} (int argc, const char $\ast$const $\ast$argv)
 \begin{DoxyCompactList}\small\item\em Parse options from given command line arguments. \end{DoxyCompactList}\item 
 const boost\+::program\+\_\+options\+::variables\+\_\+map \& \hyperlink{classsocketplay_1_1ProgramOptionsParser_a9b01f381d32504969c720c03f85cba3e}{variables\+\_\+map} () const \hypertarget{classsocketplay_1_1ProgramOptionsParser_a9b01f381d32504969c720c03f85cba3e}{}\label{classsocketplay_1_1ProgramOptionsParser_a9b01f381d32504969c720c03f85cba3e}
 
@@ -99,12 +99,12 @@ Const ref of type T to given variable from options map
 \end{DoxyReturn}
 \index{socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}!parse\+\_\+command\+\_\+line@{parse\+\_\+command\+\_\+line}}
 \index{parse\+\_\+command\+\_\+line@{parse\+\_\+command\+\_\+line}!socketplay\+::\+Program\+Options\+Parser@{socketplay\+::\+Program\+Options\+Parser}}
-\subsubsection[{\texorpdfstring{parse\+\_\+command\+\_\+line(int argc, const char $\ast$const $\ast$argv)}{parse_command_line(int argc, const char *const *argv)}}]{\setlength{\rightskip}{0pt plus 5cm}void Program\+Options\+Parser\+::parse\+\_\+command\+\_\+line (
+\subsubsection[{\texorpdfstring{parse\+\_\+command\+\_\+line(int argc, const char $\ast$const $\ast$argv)}{parse_command_line(int argc, const char *const *argv)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::tuple$<$ Program\+Mode, Options\+Container $>$ Program\+Options\+Parser\+::parse\+\_\+command\+\_\+line (
 \begin{DoxyParamCaption}
 \item[{int}]{argc, }
 \item[{const char $\ast$const $\ast$}]{argv}
 \end{DoxyParamCaption}
-)}\hypertarget{classsocketplay_1_1ProgramOptionsParser_ac3a2c72b6b7def4556e1f71f4a7f3c3a}{}\label{classsocketplay_1_1ProgramOptionsParser_ac3a2c72b6b7def4556e1f71f4a7f3c3a}
+)}\hypertarget{classsocketplay_1_1ProgramOptionsParser_ad9d10b64a800bbdd5fa2f27cb35d14ad}{}\label{classsocketplay_1_1ProgramOptionsParser_ad9d10b64a800bbdd5fa2f27cb35d14ad}
 
 
 Parse options from given command line arguments. 

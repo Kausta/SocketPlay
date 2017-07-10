@@ -1,5 +1,4 @@
-var searchData =
-    [
-        ['socket_20play', ['Socket Play', ['../index.html', 1, '']]],
-        ['source_5ffile', ['source_file', ['../classsocketplay_1_1ProgramOptions.html#ad6e2a11e5dae0d8621fc38d1cddc6f7c', 1, 'socketplay::ProgramOptions']]]
-    ];
+var searchData=
+[
+  ['variables_5fmap',['variables_map',['../classsocketplay_1_1ProgramOptionsParser.html#a9b01f381d32504969c720c03f85cba3e',1,'socketplay::ProgramOptionsParser']]]
+];

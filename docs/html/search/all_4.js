@@ -1,4 +1,6 @@
-var searchData =
-    [
-        ['run', ['run', ['../classsocketplay_1_1Program.html#a7bedc6f73cbac401175a457148a2fbef', 1, 'socketplay::Program']]]
-    ];
+var searchData=
+[
+  ['socket_20play',['Socket Play',['../index.html',1,'']]],
+  ['streamfileoptions',['StreamFileOptions',['../structsocketplay_1_1StreamFileOptions.html',1,'socketplay']]],
+  ['streamoptions',['StreamOptions',['../structsocketplay_1_1StreamOptions.html',1,'socketplay']]]
+];

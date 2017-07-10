@@ -20,14 +20,21 @@ namespace socketplay {
  */
 class ProgramOptionsParser {
  public:
-  ///Default constructor for Program Options Parser
-  ProgramOptionsParser();
   /**
-   * @brief Parse options from given command line arguments
-   * @param argc Argument Count
-   * @param argv Arguments
+   * Initiates parser for command line arguments
+   * @param arguments Command Line Arguments
    */
-  std::tuple<ProgramMode, OptionsContainer> parse_command_line(int argc, const char *const *argv);
+  explicit ProgramOptionsParser(std::vector<std::string>&& arguments);
+
+  /// Parser for stream options, checks whether the mode is true
+  StreamOptions parse_stream_options();
+
+  /// Parser for stream file options, checks whether the mode is true
+  StreamFileOptions parse_stream_file_options();
+
+  /// Parser for play options, checks whether the mode is true
+  PlayOptions parse_play_options();
+
   // TODO: Add parser for config file
 
   /// Variables map parsed from program options
@@ -60,7 +67,11 @@ class ProgramOptionsParser {
       throw Error(error);
     return variables_map_[variable].as<T>();
   }
-
+  /**
+   * Gets specified mode
+   * @return Mode got from arguments
+   */
+  ProgramMode mode() const { return mode_; }
   /// Returns the generated help message
   const std::string &help_message() const { return help_message_; }
  private:
@@ -74,6 +85,10 @@ class ProgramOptionsParser {
   boost::program_options::variables_map variables_map_;
 
   std::string help_message_;
+
+  std::vector<std::string> arguments_;
+  std::vector<std::string> unrecognized_;
+  ProgramMode mode_;
 };
 }
 

@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <string>
+#include "ProgramMode.h"
 
 namespace socketplay {
 /**
@@ -18,12 +19,12 @@ class Program {
   /// Default constructor for program
   Program();
 
-  /**
-   * Runs the application from given arguments
-   * @param argc Argument count
-   * @param argv Arguments
-   */
-  void run(int argc, const char *const *argv);
+  /// Run in stream mode with given options
+  void run_stream_mode(StreamOptions&& options);
+  /// Run in file streaming mode with given options
+  void run_stream_file_mode(StreamFileOptions&& options);
+  /// Run in playing mode with given options
+  void run_play_mode(PlayOptions&& options);
  private:
 
 };

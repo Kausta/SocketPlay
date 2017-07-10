@@ -1,43 +1,27 @@
 cmake_minimum_required(VERSION 3.7)
 project(SocketPlay VERSION 0.1 LANGUAGES CXX)
 
-# Code coverage
-if (CMAKE_COMPILER_IS_GNUCC)
-    option(ENABLE_COVERAGE "Enable Coverage Reporting in GCC" FALSE)
-
-    if (ENABLE_COVERAGE)
-        add_definitions(--coverage -O0)
-        set(LINKER_FLAGS "${LINKER_FLAGS} --coverage")
-    endif ()
-endif ()
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${LINKER_FLAGS}")
-
-# Global parameters
-add_definitions(-Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wpedantic)
 if (${CMAKE_VERSION} VERSION_GREATER 3.8)
     set(CMAKE_CXX_STANDARD 17)
-else ()
-    add_definitions(-std=c++1z)
-endif ()
-
-# From Jason Turner Best Practices
-add_definitions(-Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wmisleading-indentation)
-
-# Extra parameters (Unused for now)
-#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}") // -O0 -g -DDEBUG
-#set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}") // -O3 -DNDEBUG
-#set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}") // -O0 -g
+endif()
 
 # Boost static and multithreaded
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
-
-# Include boost
 find_package(Boost REQUIRED COMPONENTS program_options)
-# System so that it doesn't warn for everything in Boost ( with out extended warnings )
-include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 
-include_directories(include)
-set(SOURCE_FILES source/main.cpp source/Program.cpp include/Program.h source/ProgramOptionsParser.cpp include/ProgramOptionsParser.h include/ProgramMode.h)
+set(SOURCE_FILES source/main.cpp source/Program.cpp include/Program.h source/ProgramOptionsParser.cpp include/ProgramOptionsParser.h include/ProgramMode.h include/Windows/ComHelper.h source/Windows/ComHelper.cpp include/Logger.h include/Windows/AudioSource.h include/Windows/detail/AudioSourceImpl.h include/Windows/AudioPlayerWindows.h source/Windows/AudioPlayerWindows.cpp include/AudioPlayer.h)
 add_executable(SocketPlay ${SOURCE_FILES})
+
+if (${CMAKE_VERSION} VERSION_LESS 3.8)
+    target_compile_options(SocketPlay PUBLIC -std=c++1z)
+endif ()
+
+target_include_directories(SocketPlay SYSTEM PRIVATE ${Boost_INCLUDE_DIRS})
+target_include_directories(SocketPlay PRIVATE include)
 target_link_libraries(SocketPlay ${Boost_LIBRARIES})
+
+target_compile_options(SocketPlay PUBLIC -Wall -Werror -Wpedantic)
+target_compile_options(SocketPlay PUBLIC -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused
+        -Woverloaded-virtual -Wconversion -Wsign-conversion -Wmisleading-indentation)
+target_compile_options(SocketPlay PUBLIC -Wno-error=unused-variable -Wno-error=sign-conversion)

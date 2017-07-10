@@ -7,7 +7,6 @@
 #define SOCKETPLAY_PROGRAMMODE_H
 
 #include <string>
-#include <variant>
 
 namespace socketplay {
 enum class ProgramMode {
@@ -18,29 +17,31 @@ enum class ProgramMode {
   PLAY
 };
 struct GenericOptions {
+  ProgramMode mode;
 
+  explicit GenericOptions(ProgramMode mode_)
+      : mode(mode_) {}
 };
-struct StreamOptions {
+struct StreamOptions : GenericOptions {
   unsigned short port;
 
   explicit StreamOptions(unsigned short port_)
-      : port(port_) {}
+      : GenericOptions(ProgramMode::STREAM), port(port_) {}
 };
-struct StreamFileOptions {
+struct StreamFileOptions : GenericOptions {
   std::string source;
   unsigned short port;
 
   explicit StreamFileOptions(std::string source_, unsigned short port_)
-      : source(std::move(source_)), port(port_) {}
+      : GenericOptions(ProgramMode::STREAM_FILE), source(std::move(source_)), port(port_) {}
 };
-struct PlayOptions {
+struct PlayOptions : GenericOptions {
   std::string target_address;
   unsigned short target_port;
 
   explicit PlayOptions(std::string target_address_, unsigned short target_port_)
-      : target_address(std::move(target_address_)), target_port(target_port_) {}
+      : GenericOptions(ProgramMode::PLAY), target_address(std::move(target_address_)), target_port(target_port_) {}
 };
-using OptionsContainer = std::variant<std::monostate, GenericOptions, StreamOptions, StreamFileOptions, PlayOptions>;
 }
 
 #endif //SOCKETPLAY_PROGRAMMODE_H

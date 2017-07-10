@@ -5,16 +5,18 @@
 
 #include <sstream>
 #include <boost/program_options.hpp>
+#include <Logger.h>
 #include "ProgramOptionsParser.h"
 
 using namespace socketplay;
 namespace po = boost::program_options;
 
-ProgramOptionsParser::ProgramOptionsParser()
+ProgramOptionsParser::ProgramOptionsParser(std::vector<std::string>&& arguments)
     : general_options_("General Options"),
       stream_options_("Streaming Options"),
       stream_file_options_("File Streaming Options"),
-      play_options_("Playing Options") {
+      play_options_("Playing Options"),
+      arguments_(std::move(arguments)) {
   // Add general options
   general_options_.add_options()
       ("help,h", "Shows this help message.")
@@ -47,49 +49,64 @@ ProgramOptionsParser::ProgramOptionsParser()
   std::stringstream ss;
   ss << all_options_;
   help_message_ = ss.str();
-}
 
-std::tuple<ProgramMode, OptionsContainer> ProgramOptionsParser::parse_command_line(int argc, const char *const *argv) {
-  auto parsed = po::basic_command_line_parser(argc, argv)
+  // Parse and store arguments in initiation
+  // Can call specific method after that depending on the mode
+  auto parsed = po::command_line_parser(arguments_)
       .options(general_options_)
       .positional(positional_options_)
       .allow_unregistered()
       .run();
   po::store(parsed, variables_map_);
 
-  if (has("help"))
-    return {ProgramMode::HELP, {}};
-  if (has("version"))
-    return {ProgramMode::VERSION, {}};
+  mode_ = [&](){
+    if(has("help"))
+      return ProgramMode::HELP;
+    if(has("version"))
+      return ProgramMode::VERSION;
+    auto const& mode = get_checked<std::string>("mode", "Mode argument is required!");
+    if(mode == "stream")
+      return ProgramMode::STREAM;
+    if(mode == "stream-file")
+      return ProgramMode::STREAM_FILE;
+    if(mode == "play")
+      return ProgramMode::PLAY;
+    throw std::runtime_error("Unrecognized mode!");
+  }();
+  unrecognized_ = po::collect_unrecognized(parsed.options, po::include_positional);
+}
 
-  auto const &mode = get_checked<std::string>("mode", "Mode argument is required!");
-  auto options = po::collect_unrecognized(parsed.options, po::include_positional);
-  // Erase the positional mode
-  options.erase(options.begin());
-  if (mode == "stream") {
-    po::store(po::basic_command_line_parser(options).options(stream_options_).run(), variables_map_);
-    po::notify(variables_map_);
+StreamOptions ProgramOptionsParser::parse_stream_options() {
+  assert(mode_ == ProgramMode::STREAM);
 
-    return {ProgramMode::STREAM, StreamOptions{
-        get_checked<unsigned short>("port", "Port is required for stream mode!")
-    }};
-  }
-  if (mode == "stream-file") {
-    po::store(po::basic_command_line_parser(options).options(stream_file_options_).run(), variables_map_);
-    po::notify(variables_map_);
-    return {ProgramMode::STREAM_FILE, StreamFileOptions{
-        get_checked<std::string>("source", "Source file is required for stream-file mode!"),
-        get_checked<unsigned short>("port", "Port is required for stream mode!")
-    }};
-  }
-  if (mode == "play") {
-    po::store(po::basic_command_line_parser(options).options(play_options_).run(), variables_map_);
-    po::notify(variables_map_);
-    return {ProgramMode::PLAY, PlayOptions{
-        get_checked<std::string>("address", "Target address is required for play mode!"),
-        get_checked<unsigned short>("port", "Target port is required for play mode!")
-    }};
-  }
+  po::store(po::basic_command_line_parser(unrecognized_).options(stream_options_).run(), variables_map_);
+  po::notify(variables_map_);
 
-  throw std::runtime_error("Unrecognized mode!");
+  return StreamOptions {
+      get_checked<unsigned short>("port", "Port is required for stream mode!")
+  };
+}
+
+StreamFileOptions ProgramOptionsParser::parse_stream_file_options() {
+  assert(mode_ == ProgramMode::STREAM_FILE);
+
+  po::store(po::basic_command_line_parser(unrecognized_).options(stream_file_options_).run(), variables_map_);
+  po::notify(variables_map_);
+
+  return StreamFileOptions {
+      get_checked<std::string>("source", "Source file is required for stream-file mode!"),
+      get_checked<unsigned short>("port", "Port is required for stream file mode!")
+  };
+}
+
+PlayOptions ProgramOptionsParser::parse_play_options() {
+  assert(mode_ == ProgramMode::PLAY);
+
+  po::store(po::basic_command_line_parser(unrecognized_).options(play_options_).run(), variables_map_);
+  po::notify(variables_map_);
+
+  return PlayOptions {
+      get_checked<std::string>("address", "Target address is required for play mode!"),
+      get_checked<unsigned short>("port", "Target port is required for play mode!")
+  };
 }

@@ -1,4 +1,4 @@
-var searchData =
-    [
-        ['socket_20play', ['Socket Play', ['../index.html', 1, '']]]
-    ];
+var searchData=
+[
+  ['socket_20play',['Socket Play',['../index.html',1,'']]]
+];
